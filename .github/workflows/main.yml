@@ -9,7 +9,7 @@ jobs:
     steps:
     - name: Hello world action step
       id: hello
-      uses: takuya-kikuchi/github-actions-trial@v1
+      uses: takuya-kikuchi/github-actions-trial
       with:
         who-to-greet: 'Capybara'
     # Use the output from the `hello` step
