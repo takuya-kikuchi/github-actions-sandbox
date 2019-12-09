@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: Hello world action step
       id: hello
-      uses: takuya-kikuchi/github-actions-trial@v9
+      uses: takuya-kikuchi/github-actions-trial@v10
       with:
         SOURCE_BRANCH_NAME: ${{ github.event.pull_request.base.ref }}
         REPOSITORY_OWNER_NAME: ${{ github.event.pull_request.base.repo.owner.login }}
