@@ -1,4 +1,4 @@
-name: MERGED_PR_TRACKER
+name: MergedPullRequestTracker
 
 on:
   pull_request:
