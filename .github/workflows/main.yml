@@ -1,6 +1,8 @@
-name: CI
+name: MERGED_PR_TRACKER
 
-on: [push]
+on:
+  pull_request:
+    types: [opened,edited,closed]
 
 jobs:
   hello_world_job:
@@ -9,9 +11,11 @@ jobs:
     steps:
     - name: Hello world action step
       id: hello
-      uses: takuya-kikuchi/github-actions-trial@v2
+      uses: takuya-kikuchi/github-actions-trial@v5
       with:
-        who-to-greet: 'Capybara'
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+        SOURCE_BRANCH_NAME: ${{ github.event.pull_request.base.ref }}
+        REPOSITORY_OWNER_NAME: ${{ github.event.pull_request.base.repo.owner.login }}
+        REPOSITORY_NAME: ${{ github.event.pull_request.base.repo.name }}
+        MERGED_PR_NUMBER: ${{ github.event.pull_request.number }}
+        MERGED_PR_TITLE: ${{ github.event.pull_request.title }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
